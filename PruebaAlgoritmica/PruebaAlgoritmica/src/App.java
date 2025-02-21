@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) throws Exception {
-         Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         // Leer tamaño de la lista
         System.out.print("Ingrese el tamaño de la lista: ");
         int n = scanner.nextInt();
@@ -19,7 +19,7 @@ public class App {
         Collections.sort(lista);
         // Imprimimos la lista de forma ordenada y con numero repetidos si es el caso 
         System.out.println("Lista almacenada: " + lista);
-        // Ingresamos el numero de consultas a validad
+        // Ingresamos el numero de consultas a validar
         System.out.print("Ingrese el número de consultas: ");
         int q = scanner.nextInt();
         // Leer los números a evaluar
@@ -31,11 +31,15 @@ public class App {
             // Buscar el número menor más alto y el mayor más bajo
             //se utiliza la j ya que estamos dentro de un for ya con la variable i utilizada
             for (int j = 0; j < lista.size(); j++) {
+
+                // Si el elemento actual es menor que num, lo guardamos como posible "menor inmediato"
                 if (lista.get(j) < num) {
                     lower = lista.get(j);
+
+                // Si el elemento actual es mayor que num, encontramos el "mayor inmediato" y salimos del bucle    
                 } else if (lista.get(j) > num) {
                     higher = lista.get(j);
-                    break; // No necesitamos seguir buscando
+                    break;
                 }
             }
             // Imprimir resultado
